@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+//@import "~bootstrap/dist/css/bootstrap.css";
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import 'variable';
 @import '../node_modules/font-awesome/scss/font-awesome';
@@ -33,7 +33,7 @@ h4 {
 }
 a {
     font-weight: 600;
-    color: #212631;
+    color: #212631 !important;
     text-decoration: none;
 }
 a:hover, a:focus{
@@ -221,6 +221,9 @@ textarea.input {
 }
 #nav .container {
     position: relative;
+}
+.navbar-nav{
+    display: inline-block !important;
 }
 /*----------------------------*\
    logo

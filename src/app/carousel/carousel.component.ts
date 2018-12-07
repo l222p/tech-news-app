@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{ HttpClient} from'@angular/common/http';
-import{ ProcessHTTPService} from'../services/process-http.service';
+
 import { NewsService } from '../services/news.service';
 import { News } from 'src/shared/News';
 @Component({
@@ -17,7 +16,7 @@ export class CarouselComponent implements OnInit {
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.newsService.getImagesSlider().subscribe(productos => this.sliderImages= productos, errorMsj=> this.errorMsj= <any>errorMsj);
+    this.newsService.getImagesSlider().subscribe(images => this.sliderImages= images, errorMsj=> this.errorMsj= <any>errorMsj);
   }
 
   

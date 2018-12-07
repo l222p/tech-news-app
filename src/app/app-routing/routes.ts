@@ -4,6 +4,6 @@ import { NewsComponent } from '../news/news.component';
 
 export const myRoutes: Routes= [
     { path: 'homepage', component: HomepageComponent},
-    { path: 'news', component: NewsComponent},
+    { path: 'news/:id', component: NewsComponent}, 
     { path: '', redirectTo: '/homepage', pathMatch: 'full' }
     ];

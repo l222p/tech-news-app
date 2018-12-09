@@ -88,31 +88,37 @@
               <h2>Leave a reply</h2>
               <p>your email address will not be published. required fields are marked *</p>
             </div>
-            <form class="post-reply">
+            <form class="post-reply" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
                     <span>Name *</span>
-                    <input class="input" type="text" name="name">
+                    <input class="input" formControlName="author" type="text" name="name">
+                    <span class="error-form" [hidden]="!(errorsForm.author)">
+                      <i class="fa fa-exclamation-circle"></i> {{errorsForm.author}}</span>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <span>Email *</span>
-                    <input class="input" type="email" name="email">
+                    <input class="input" formControlName="email" type="email" name="email">
+                    <span class="error-form" [hidden]="!(errorsForm.email)">
+                      <i class="fa fa-exclamation-circle"></i> {{errorsForm.email}}</span>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <span>Website</span>
-                    <input class="input" type="text" name="website">
+                    <input class="input" formControlName="website" type="text" name="website">
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <textarea class="input" name="message" placeholder="Message"></textarea>
+                    <textarea class="input" formControlName="comment" name="message" placeholder="Message"></textarea>
+                    <span class="error-form" [hidden]="!(errorsForm.comment)">
+                      <i class="fa fa-exclamation-circle"></i> {{errorsForm.comment}}</span>
                   </div>
-                  <button class="primary-button">Submit</button>
+                  <button class="primary-button" [disabled]="commentForm.invalid">Submit</button>
                 </div>
               </div>
             </form>

@@ -17,4 +17,7 @@ export class CategoriesService {
   getCategories(): Observable<Category>{
     return this.http.get<Category>(dataURL+ 'categories').pipe(catchError(this.processHttpService.manageError));
   }
+  getCategory(id): Observable<Category>{
+    return this.http.get<Category>(dataURL+ 'categories/'+id).pipe(catchError(this.processHttpService.manageError));
+  }
 }

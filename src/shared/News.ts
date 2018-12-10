@@ -5,7 +5,7 @@ export class News{
     title: string;
     image: string;
     date: string;
-    category: Category;
+    category: number;
     slider: boolean;
     content: string;
     description: string;

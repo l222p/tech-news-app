@@ -4,9 +4,11 @@ import { Comment } from 'src/shared/Comment';
 import { Params, ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
 import { NewsService } from '../services/news.service'
+import { CategoriesService} from '../services/categories.service'
 import { switchMap } from 'rxjs/operators';
 import{ FormBuilder, FormGroup, Validators} from'@angular/forms';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
+import { Category } from 'src/shared/Category';
 
 @Component({
   selector: 'app-news',
@@ -20,7 +22,9 @@ export class NewsComponent implements OnInit {
   commentForm: FormGroup;
   comment: Comment;
   commentRest = null;
-
+  category: Category;
+  categories: Category;
+  myCategoryId: number;
   errorsForm = {
     'author': '', 
     'email': '',
@@ -44,7 +48,7 @@ export class NewsComponent implements OnInit {
   };
 
 
-  constructor(private newsService: NewsService, private route: ActivatedRoute, private myLocation: Location, private fb: FormBuilder ) { 
+  constructor(private newsService: NewsService, private categoryService: CategoriesService ,private route: ActivatedRoute, private myLocation: Location, private fb: FormBuilder ) { 
     this.buildCommentForm();
   }
 
@@ -55,7 +59,8 @@ export class NewsComponent implements OnInit {
 
     this.route.params.pipe(switchMap((params: Params) => {
       
-      return this.newsService.getNews(params['id'])})).subscribe(myNews => { this.news= myNews; this.commentRest= myNews}, errorMensaje=> this.errorMsj= <any>errorMensaje);
+      return this.newsService.getNews(params['id'])})).subscribe(myNews => { this.news= myNews; this.commentRest= myNews; this.getCategory( myNews.category);
+      }, errorMensaje=> this.errorMsj= <any>errorMensaje);
     
   }
   
@@ -73,7 +78,6 @@ export class NewsComponent implements OnInit {
   }
 
   onCambioValor(data?: any) {
-    
     
     if(!this.commentForm) { return; }
     const form= this.commentForm;
@@ -108,6 +112,12 @@ export class NewsComponent implements OnInit {
       this.newsService.setNewsComment(this.commentRest).subscribe(myComment => {this.comment = myComment});
    
     }
-
+    getCategory(id){
+      this.route.params.pipe(switchMap((params: Params) => {
+      
+        return this.categoryService.getCategory(id)})).subscribe(myCategory => {  this.category= myCategory; console.log("COMPORNENT", myCategory);
+        }, errorMensaje=> this.errorMsj= <any>errorMensaje);
+    }
+    
   
 }

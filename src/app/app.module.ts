@@ -18,6 +18,9 @@ import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import{ dataURL} from'../dataURL';
 import { ProcessHTTPService } from './services/process-http.service';
 
+import {NewsService} from './services/news.service'
+import {CategoriesService} from './services/categories.service';
+import { NewsCategoryComponent } from './news-category/news-category.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { ProcessHTTPService } from './services/process-http.service';
     HomepageComponent,
     NewsComponent,
     CarouselComponent,
-    RecentPostsComponent
+    RecentPostsComponent,
+    NewsCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,8 @@ import { ProcessHTTPService } from './services/process-http.service';
   ],
   providers: [
     ProcessHTTPService,
+    NewsService,
+    CategoriesService,
     {provide: 'DataURL', useValue: dataURL}
   ],
   bootstrap: [AppComponent]

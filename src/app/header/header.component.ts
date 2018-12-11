@@ -12,7 +12,7 @@ import { Category } from 'src/shared/Category';
 export class HeaderComponent implements OnInit {
   
   categoryRest = null;
-  categories: Category;
+  categories: Category[];
   errorMsj = null;
   constructor(private categoriesService: CategoriesService, private route: ActivatedRoute) { 
   }

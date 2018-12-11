@@ -23,7 +23,7 @@ export class NewsComponent implements OnInit {
   comment: Comment;
   commentRest = null;
   category: Category;
-  categories: Category;
+  categories: Category[];
   myCategoryId: number;
   errorsForm = {
     'author': '', 
@@ -59,7 +59,7 @@ export class NewsComponent implements OnInit {
 
     this.route.params.pipe(switchMap((params: Params) => {
       
-      return this.newsService.getNews(params['id'])})).subscribe(myNews => { this.news= myNews; this.commentRest= myNews; this.getCategory( myNews.category);
+      return this.newsService.getNews(params['id'])})).subscribe(myNews => { this.news= myNews; this.commentRest= myNews; this.getCategory( myNews.category); this.getCategories();
       }, errorMensaje=> this.errorMsj= <any>errorMensaje);
     
   }
@@ -113,10 +113,14 @@ export class NewsComponent implements OnInit {
    
     }
     getCategory(id){
-      this.route.params.pipe(switchMap((params: Params) => {
+      this.categoryService.getCategory(id).subscribe(myCategory => {  this.category= myCategory;
+       });
+    }
+    
+    getCategories(){
+      this.categoryService.getCategories().subscribe(myCategories => {  this.categories= myCategories; });
+     
       
-        return this.categoryService.getCategory(id)})).subscribe(myCategory => {  this.category= myCategory; console.log("COMPORNENT", myCategory);
-        }, errorMensaje=> this.errorMsj= <any>errorMensaje);
     }
     
   

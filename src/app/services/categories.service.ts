@@ -14,10 +14,14 @@ export class CategoriesService {
 
   constructor(private http: HttpClient, private processHttpService: ProcessHTTPService) { }
 
-  getCategories(): Observable<Category>{
-    return this.http.get<Category>(dataURL+ 'categories').pipe(catchError(this.processHttpService.manageError));
+  getCategories(): Observable<Category[]>{
+    return this.http.get<Category[]>(dataURL+ 'categories').pipe(catchError(this.processHttpService.manageError));
   }
   getCategory(id): Observable<Category>{
     return this.http.get<Category>(dataURL+ 'categories/'+id).pipe(catchError(this.processHttpService.manageError));
   }
+
+  
+
+
 }

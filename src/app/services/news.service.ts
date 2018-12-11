@@ -33,6 +33,10 @@ export class NewsService {
     var myVar: Observable<News[]> =this.http.get<News[]>(dataURL+ 'news?slider=true').pipe(catchError(this.processHttpService.manageError));    
     return myVar;
   }
+  
+  getNewsByCategory(id){
+    return this.http.get<News>(dataURL+ 'news/?category='+id).pipe(catchError(this.processHttpService.manageError));
+  }
  
   setNewsComment(news):Observable<Comment>{
     return this.http.put<Comment>(dataURL+ 'news/'+ news.id, news, httpOptions)

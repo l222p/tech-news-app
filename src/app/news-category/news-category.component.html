@@ -1,3 +1,174 @@
-<p>
-  news-category works!
-</p>
+<div class="page-header" *ngIf="category">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <ul class="page-header-breadcrumb">
+            <li><a routerLink="/">Home</a></li>
+            <li>{{category.name}}</li>
+          </ul>
+          <h1>{{ category.name }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" *ngIf="news && category">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-8">
+						<div class="row">
+              <!-- post -->
+              
+							<div class="col-md-12">
+								<div class="post post-thumb">
+									<a class="post-img" [routerLink]="['/news', news[0].id]"><img src="{{ news[0].image }}" alt=""></a>
+									<div class="post-body">
+										<div class="post-meta">
+											<a class="post-category cat-{{category.id}}" [routerLink]="['/news-category', category.id]">{{ category.name}}</a>
+											<span class="post-date">{{news[0].date | date: short}}</span>
+										</div>
+										<h3 class="post-title"><a [routerLink]="['/news', news[0].id]" style="color: white !important;">{{news[0].title}}</a></h3>
+									</div>
+								</div>
+							</div>
+							<!-- /post -->
+										
+							<!-- post -->
+							
+							
+							<div class="col-md-6" *ngFor="let myNews of news | slice:1:3">
+								<div class="post">
+									<a class="post-img" [routerLink]="['/news', myNews.id]"><img src="{{ myNews.image }}" alt=""></a>
+									<div class="post-body">
+										<div class="post-meta">
+											<a class="post-category cat-{{category.id}}" [routerLink]="['/news-category', category.id]">{{ category.name}}</a>
+											<span class="post-date">{{myNews.date | date: short}}</span>
+										</div>
+										<h3 class="post-title"><a [routerLink]="['/news', myNews.id]">{{myNews.title}}</a></h3>
+									</div>
+								</div>
+							</div>
+						
+							<div class="clearfix visible-md visible-lg"></div>
+							
+							<!-- ad -->
+							<div class="col-md-12">
+								<div class="section-row">
+								
+								
+								</div>
+							</div>
+							<!-- ad -->
+							
+							<!-- post -->
+							<div *ngIf="news[3]">
+								
+							<div class="col-md-12" *ngFor="let myNewsSmall of news | slice:3">
+								<div class="post post-row">
+									<a class="post-img" [routerLink]="['/news', myNewsSmall.id]"><img src="{{myNewsSmall.image}}" alt=""></a>
+									<div class="post-body">
+										<div class="post-meta">
+											<a class="post-category cat-{{category.id}}" href="#">{{category.name}}</a>
+											<span class="post-date">March 27, 2018</span>
+										</div>
+										<h3 class="post-title"><a [routerLink]="['/news', myNewsSmall.id]">{{myNewsSmall.title}}</a></h3>
+										<p>{{myNewsSmall.description}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						</div>
+					</div>
+					
+					<div class="col-md-4">
+						<!-- ad -->
+						<div class="aside-widget text-center">
+							<a href="#" style="display: inline-block;margin: auto;">
+								<img class="img-responsive" src="./img/ad-1.jpg" alt="">
+							</a>
+						</div>
+						<!-- /ad -->
+						
+						<!-- post widget -->
+						<div class="aside-widget">
+							<div class="section-title">
+								<h2>Most Read</h2>
+							</div>
+
+							<div class="post post-widget">
+								<a class="post-img" href="blog-post.html"><img src="./img/widget-1.jpg" alt=""></a>
+								<div class="post-body">
+									<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
+								</div>
+							</div>
+
+							<div class="post post-widget">
+								<a class="post-img" href="blog-post.html"><img src="./img/widget-2.jpg" alt=""></a>
+								<div class="post-body">
+									<h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
+								</div>
+							</div>
+
+							<div class="post post-widget">
+								<a class="post-img" href="blog-post.html"><img src="./img/widget-3.jpg" alt=""></a>
+								<div class="post-body">
+									<h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
+								</div>
+							</div>
+
+							<div class="post post-widget">
+								<a class="post-img" href="blog-post.html"><img src="./img/widget-4.jpg" alt=""></a>
+								<div class="post-body">
+									<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
+								</div>
+							</div>
+						</div>
+						<!-- /post widget -->
+						
+						<!-- catagories -->
+						<app-category-tag></app-category-tag>
+						
+						<!-- /catagories -->
+						
+						<!-- tags -->
+						<div class="aside-widget">
+							<div class="tags-widget">
+								<ul>
+									<li><a href="#">Chrome</a></li>
+									<li><a href="#">CSS</a></li>
+									<li><a href="#">Tutorial</a></li>
+									<li><a href="#">Backend</a></li>
+									<li><a href="#">JQuery</a></li>
+									<li><a href="#">Design</a></li>
+									<li><a href="#">Development</a></li>
+									<li><a href="#">JavaScript</a></li>
+									<li><a href="#">Website</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- /tags -->
+						
+						<!-- archive -->
+						<div class="aside-widget">
+							<div class="section-title">
+								<h2>Archive</h2>
+							</div>
+							<div class="archive-widget">
+								<ul>
+									<li><a href="#">Jan 2018</a></li>
+									<li><a href="#">Feb 2018</a></li>
+									<li><a href="#">Mar 2018</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- /archive -->
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+

@@ -17,7 +17,7 @@
             </li>
             <li class="nav-item"><a href="category.html" class="nav-link">Popular</a>
             </li>
-            <li *ngFor="let category of categories" class="cat-{{category.id}} nav-item"><a [routerLink]= "['/news-category', category.url]" class="nav-link">{{category.name}}</a>
+            <li *ngFor="let category of categories" class="cat-{{category.id}} nav-item"><a [routerLink]= "['/news-category', category.id]" class="nav-link">{{category.name}}</a>
             </li>
             <!--<li class="cat-2 nav-item"><a href="category.html" class="nav-link">JavaScript</a>
             </li>

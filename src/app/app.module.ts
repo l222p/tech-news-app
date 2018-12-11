@@ -20,7 +20,8 @@ import { ProcessHTTPService } from './services/process-http.service';
 
 import {NewsService} from './services/news.service'
 import {CategoriesService} from './services/categories.service';
-import { NewsCategoryComponent } from './news-category/news-category.component'
+import { NewsCategoryComponent } from './news-category/news-category.component';
+import { CategoryTagComponent } from './category-tag/category-tag.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { NewsCategoryComponent } from './news-category/news-category.component'
     NewsComponent,
     CarouselComponent,
     RecentPostsComponent,
-    NewsCategoryComponent
+    NewsCategoryComponent,
+    CategoryTagComponent
   ],
   imports: [
     BrowserModule,

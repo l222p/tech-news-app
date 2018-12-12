@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { News } from 'src/shared/News';
 import { Comment } from 'src/shared/Comment';
 import { Params, ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
 import { NewsService } from '../services/news.service'
 import { CategoriesService} from '../services/categories.service'
+import { MyNewsService} from '../services/my-news.service'
+import {FavoritesDialogsComponent} from '../favorites-dialogs/favorites-dialogs.component'
 import { switchMap } from 'rxjs/operators';
 import{ FormBuilder, FormGroup, Validators} from'@angular/forms';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { Category } from 'src/shared/Category';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-news',
@@ -16,6 +19,7 @@ import { Category } from 'src/shared/Category';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
+  @ViewChild('myModal') modal: FavoritesDialogsComponent;
   news: News;
   newsForm: News;
   errorMsj: string;
@@ -25,6 +29,7 @@ export class NewsComponent implements OnInit {
   category: Category;
   categories: Category[];
   myCategoryId: number;
+  closeResult: string;
   errorsForm = {
     'author': '', 
     'email': '',
@@ -48,7 +53,7 @@ export class NewsComponent implements OnInit {
   };
 
 
-  constructor(private newsService: NewsService, private categoryService: CategoriesService ,private route: ActivatedRoute, private myLocation: Location, private fb: FormBuilder ) { 
+  constructor(private modalService: NgbModal,private newsService: NewsService, private myNewsService : MyNewsService, private categoryService: CategoriesService ,private route: ActivatedRoute, private myLocation: Location, private fb: FormBuilder ) { 
     this.buildCommentForm();
   }
 
@@ -64,6 +69,7 @@ export class NewsComponent implements OnInit {
     
   }
   
+
   buildCommentForm() {
     this.commentForm= this.fb.group({
       author: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
@@ -112,6 +118,33 @@ export class NewsComponent implements OnInit {
       this.newsService.setNewsComment(this.commentRest).subscribe(myComment => {this.comment = myComment});
    
     }
+
+    addToFavorites(id){
+      
+      var added = this.myNewsService.addToFavorites(id);
+      console.log(added);
+      this.modal.open(added)
+    }
+
+    open(content) {
+      console.log("Content",content);
+      
+      this.modalService.open(FavoritesDialogsComponent, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return  `with: ${reason}`;
+      }
+    }
+
     getCategory(id){
       this.categoryService.getCategory(id).subscribe(myCategory => {  this.category= myCategory;
        });

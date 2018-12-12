@@ -39,6 +39,8 @@ export class NewsService {
   }
  
   setNewsComment(news):Observable<Comment>{
+    console.log("setNewsComment()", news);
+    
     return this.http.put<Comment>(dataURL+ 'news/'+ news.id, news, httpOptions)
     .pipe(catchError(this.processHttpService.manageError));
   }

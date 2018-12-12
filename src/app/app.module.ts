@@ -12,16 +12,22 @@ import { FooterComponent } from './footer/footer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NewsComponent } from './news/news.component';
-import { CarouselComponent } from './carousel/carousel.component';
 
 import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import{ dataURL} from'../dataURL';
+//Services
 import { ProcessHTTPService } from './services/process-http.service';
-
 import {NewsService} from './services/news.service'
 import {CategoriesService} from './services/categories.service';
+import {ContactService} from './services/contact.service';
+import {MyNewsService} from './services/my-news.service';
+
+//Components
+import { CarouselComponent } from './carousel/carousel.component';
 import { NewsCategoryComponent } from './news-category/news-category.component';
-import { CategoryTagComponent } from './category-tag/category-tag.component'
+import { CategoryTagComponent } from './category-tag/category-tag.component';
+import { ContactComponent } from './contact/contact.component';
+import { FavoritesDialogsComponent } from './favorites-dialogs/favorites-dialogs.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +38,9 @@ import { CategoryTagComponent } from './category-tag/category-tag.component'
     CarouselComponent,
     RecentPostsComponent,
     NewsCategoryComponent,
-    CategoryTagComponent
+    CategoryTagComponent,
+    ContactComponent,
+    FavoritesDialogsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +55,8 @@ import { CategoryTagComponent } from './category-tag/category-tag.component'
     ProcessHTTPService,
     NewsService,
     CategoriesService,
+    ContactService,
+    MyNewsService,
     {provide: 'DataURL', useValue: dataURL}
   ],
   bootstrap: [AppComponent]

@@ -1,0 +1,43 @@
+
+
+
+  
+<ng-template #added let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Favorites</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+    <div class="thank-you-pop">
+      <i class="success fa fa-check"></i>
+      <h1>This article has been added to your favorites!</h1>
+      <p>Visit Favorites page to see your artciles.</p>
+      
+      
+     </div>
+  </div>
+  
+</ng-template>
+
+<ng-template #notAdded let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Favorites</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="thank-you-pop">
+      <i class="error fa fa-exclamation-triangle"></i>
+      <h1>This article has already been added</h1>
+      <p>Visit Favorites page to see your artciles.</p>
+      
+      
+     </div>
+  </div>
+  
+</ng-template>
+

@@ -1,3 +1,5 @@
+<app-favorites-dialogs #myModal></app-favorites-dialogs>
+
 <div *ngIf="news">
   <div id="post-header" class="page-header">
     <div class="background-img" style="background-image: url('https://placeimg.com/1920/1080/any');"></div>
@@ -24,8 +26,14 @@
           <div class="section-row sticky-container">
             
             <div class="main-post" [innerHTML]="news.content">
-              
+                
             </div>
+            
+            <div class="post-shares sticky-shares like-button">
+              <h3>Add this article to your favorites</h3>
+              <br>
+              <a (click)="addToFavorites(news.id)" class="share-facebook"><i class="fa fa-thumbs-up"></i></a>
+            </div>  
             <div class="post-shares sticky-shares">
               <a href="#" class="share-facebook"><i class="fa fa-facebook"></i></a>
               <a href="#" class="share-twitter"><i class="fa fa-twitter"></i></a>
@@ -218,3 +226,5 @@
     <!-- /container -->
   </div>
 </div>
+
+

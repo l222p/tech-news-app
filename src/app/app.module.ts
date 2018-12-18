@@ -27,7 +27,9 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NewsCategoryComponent } from './news-category/news-category.component';
 import { CategoryTagComponent } from './category-tag/category-tag.component';
 import { ContactComponent } from './contact/contact.component';
-import { FavoritesDialogsComponent } from './favorites-dialogs/favorites-dialogs.component'
+import { FavoritesDialogsComponent } from './favorites-dialogs/favorites-dialogs.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { RelatedNewsComponent } from './related-news/related-news.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,9 @@ import { FavoritesDialogsComponent } from './favorites-dialogs/favorites-dialogs
     NewsCategoryComponent,
     CategoryTagComponent,
     ContactComponent,
-    FavoritesDialogsComponent
+    FavoritesDialogsComponent,
+    FavoritesComponent,
+    RelatedNewsComponent
   ],
   imports: [
     BrowserModule,

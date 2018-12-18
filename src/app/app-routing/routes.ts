@@ -5,6 +5,7 @@ import { NewsComponent } from '../news/news.component';
 import { NewsCategoryComponent } from '../news-category/news-category.component';
 import { RecentPostsComponent } from '../recent-posts/recent-posts.component';
 import { ContactComponent } from '../contact/contact.component';
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 export const myRoutes: Routes= [
     { path: 'homepage', component: HomepageComponent},
@@ -12,5 +13,6 @@ export const myRoutes: Routes= [
     { path: 'news-category/:id', component: NewsCategoryComponent},
     { path: 'news-recent', component: RecentPostsComponent},
     { path: 'contact', component: ContactComponent},
+    { path: 'favorites', component: FavoritesComponent},
     { path: '', redirectTo: '/homepage', pathMatch: 'full' }
     ];

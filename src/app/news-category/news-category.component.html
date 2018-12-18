@@ -71,7 +71,7 @@
 									<div class="post-body">
 										<div class="post-meta">
 											<a class="post-category cat-{{category.id}}" href="#">{{category.name}}</a>
-											<span class="post-date">March 27, 2018</span>
+											<span class="post-date">{{myNewsSmall.date | date: short }}</span>
 										</div>
 										<h3 class="post-title"><a [routerLink]="['/news', myNewsSmall.id]">{{myNewsSmall.title}}</a></h3>
 										<p>{{myNewsSmall.description}}</p>
@@ -93,39 +93,11 @@
 						<!-- /ad -->
 						
 						<!-- post widget -->
-						<div class="aside-widget">
-							<div class="section-title">
-								<h2>Most Read</h2>
-							</div>
-
-							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-1.jpg" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
-								</div>
-							</div>
-
-							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-2.jpg" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
-								</div>
-							</div>
-
-							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-3.jpg" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
-								</div>
-							</div>
-
-							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-4.jpg" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
-								</div>
-							</div>
-						</div>
+						
+							
+							
+							<app-related-news [categoryId]="category.id"></app-related-news>
+						
 						<!-- /post widget -->
 						
 						<!-- catagories -->
@@ -133,38 +105,7 @@
 						
 						<!-- /catagories -->
 						
-						<!-- tags -->
-						<div class="aside-widget">
-							<div class="tags-widget">
-								<ul>
-									<li><a href="#">Chrome</a></li>
-									<li><a href="#">CSS</a></li>
-									<li><a href="#">Tutorial</a></li>
-									<li><a href="#">Backend</a></li>
-									<li><a href="#">JQuery</a></li>
-									<li><a href="#">Design</a></li>
-									<li><a href="#">Development</a></li>
-									<li><a href="#">JavaScript</a></li>
-									<li><a href="#">Website</a></li>
-								</ul>
-							</div>
-						</div>
-						<!-- /tags -->
-						
-						<!-- archive -->
-						<div class="aside-widget">
-							<div class="section-title">
-								<h2>Archive</h2>
-							</div>
-							<div class="archive-widget">
-								<ul>
-									<li><a href="#">Jan 2018</a></li>
-									<li><a href="#">Feb 2018</a></li>
-									<li><a href="#">Mar 2018</a></li>
-								</ul>
-							</div>
-						</div>
-						<!-- /archive -->
+					
 					</div>
 				</div>
 				<!-- /row -->

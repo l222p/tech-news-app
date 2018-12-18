@@ -1,0 +1,14 @@
+<div class="aside-widget" *ngIf="relatedNews">
+  <div class="section-title">
+    <h2>Related News</h2>
+  </div>
+  
+  <div class="post post-widget" *ngFor="let related of relatedNews">
+    <a class="post-img" [routerLink]= "['/news', related.id]"><img src="{{related.image}}" alt=""></a>
+    <div class="post-body">
+      <h3 class="post-title"><a [routerLink]= "['/news', related.id]"> {{related.title}}</a></h3>
+    </div>
+  </div>
+  
+
+</div>

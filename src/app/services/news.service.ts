@@ -44,4 +44,7 @@ export class NewsService {
     return this.http.put<Comment>(dataURL+ 'news/'+ news.id, news, httpOptions)
     .pipe(catchError(this.processHttpService.manageError));
   }
+  getCategoryWithLimit(id): Observable<News>{
+    return this.http.get<News>(dataURL+ 'news?category='+id+ "&_limit=4").pipe(catchError(this.processHttpService.manageError));
+  }
 }

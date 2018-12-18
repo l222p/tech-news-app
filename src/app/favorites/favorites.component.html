@@ -1,0 +1,34 @@
+<div class="container">
+<div class="row" *ngIf="favoriteNews; else nothingToShow">
+  <div class="col-md-12">
+    <div class="section-title">
+      <br>
+      <h2>Favorites News</h2>
+      <br>
+    </div>
+  </div>
+
+  <!-- post -->
+  <div class="col-md-12" *ngFor="let favorite of favoriteNews">
+    
+    <div class="post post-row">
+      <a class="post-img" [routerLink]="['/news', favorite.id]"><img src="{{favorite.image}}" alt=""></a>
+      <div class="post-body">
+        <div class="post-meta">
+          
+          <span class="post-date">{{favorite.date | date: short}}</span>
+        </div>
+        <h3 class="post-title"><a [routerLink]="['/news', favorite.id]">{{favorite.title}}</a></h3>
+        <p>{{favorite.description}}</p>
+      </div>
+    </div>
+  </div>
+
+ 
+</div>
+<ng-template  #nothingToShow>
+  <i class="fa fa-exclamation-triangle myIcon"></i>
+  <h4>You haven't added favorite news</h4>
+  <br>
+</ng-template>
+</div>

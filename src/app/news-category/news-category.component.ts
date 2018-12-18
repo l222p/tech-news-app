@@ -28,7 +28,7 @@ export class NewsCategoryComponent implements OnInit {
       return this.newsService.getNewsByCategory(params['id'])})).subscribe(myNews => { this.news= myNews; this.getCategory(this.myParam)}, errorMensaje=> this.errorMsj= <any>errorMensaje);
   }
 
-  getCategory(id){
+  getCategory( id ){
     console.log("My Param", id);
     
     this.categoryService.getCategory(id).subscribe(myCategory => this.category = myCategory);

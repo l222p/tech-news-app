@@ -30,6 +30,7 @@ export class NewsComponent implements OnInit {
   categories: Category[];
   myCategoryId: number;
   closeResult: string;
+  
   errorsForm = {
     'author': '', 
     'email': '',
@@ -64,7 +65,7 @@ export class NewsComponent implements OnInit {
 
     this.route.params.pipe(switchMap((params: Params) => {
       
-      return this.newsService.getNews(params['id'])})).subscribe(myNews => { this.news= myNews; this.commentRest= myNews; this.getCategory( myNews.category); this.getCategories();
+      return this.newsService.getNews(params['id'])})).subscribe(myNews => { this.news= myNews; this.commentRest= myNews; this.getCategory( myNews.category); this.getCategories(); 
       }, errorMensaje=> this.errorMsj= <any>errorMensaje);
     
   }
@@ -152,9 +153,10 @@ export class NewsComponent implements OnInit {
     
     getCategories(){
       this.categoryService.getCategories().subscribe(myCategories => {  this.categories= myCategories; });
-     
       
     }
+
+   
     
   
 }

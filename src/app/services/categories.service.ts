@@ -21,6 +21,8 @@ export class CategoriesService {
     return this.http.get<Category>(dataURL+ 'categories/'+id).pipe(catchError(this.processHttpService.manageError));
   }
 
+
+  
   
 
 

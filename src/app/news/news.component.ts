@@ -124,7 +124,7 @@ export class NewsComponent implements OnInit {
       
       var added = this.myNewsService.addToFavorites(id);
       console.log(added);
-      this.modal.open(added)
+      this.modal.open(added);
     }
 
     open(content) {

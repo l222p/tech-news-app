@@ -31,7 +31,8 @@ import { ContactComponent } from './contact/contact.component';
 import { FavoritesDialogsComponent } from './favorites-dialogs/favorites-dialogs.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { RelatedNewsComponent } from './related-news/related-news.component';
-import { AboutUsComponent } from './about-us/about-us.component'
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactDialogsComponent } from './contact-dialogs/contact-dialogs.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { AboutUsComponent } from './about-us/about-us.component'
     FavoritesDialogsComponent,
     FavoritesComponent,
     RelatedNewsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactDialogsComponent
   ],
   imports: [
     BrowserModule,

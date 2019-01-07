@@ -1,0 +1,35 @@
+<ng-template #send let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Contact</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="thank-you-pop">
+          <i class="success fa fa-check"></i>
+        <h1>Your message was sent.</h1>
+        
+       </div>
+    </div>
+    
+  </ng-template>
+
+  <ng-template #notsend let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Contact</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="thank-you-pop">
+          <i class="error fa fa-exclamation-triangle"></i>
+          <h1>There is a problem, yout message wasn't able to be sent. Please try again.</h1>
+          
+          
+          
+         </div>
+      </div>
+      
+    </ng-template>

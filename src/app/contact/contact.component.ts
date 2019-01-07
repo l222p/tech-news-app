@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'src/shared/Message';
-import { ContactService } from '../services/contact.service';
+import {ContactService } from '../services/contact.service';
+import { FavoritesDialogsComponent } from '../favorites-dialogs/favorites-dialogs.component';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ContactDialogsComponent } from '../contact-dialogs/contact-dialogs.component';
 
 @Component({
   selector: 'app-contact',
@@ -9,9 +12,11 @@ import { ContactService } from '../services/contact.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+  @ViewChild('myModal') modal: ContactDialogsComponent;
   contactForm: FormGroup;
   message: Message;
   messageRest=null;
+  closeResult;
   errorsForm = {
     'email': '', 
     'subject': '',
@@ -32,7 +37,7 @@ export class ContactComponent implements OnInit {
       'email': 'It is not a valid email.'
     }
   };
-  constructor(private fb: FormBuilder, private contactService: ContactService) {
+  constructor(private modalService: NgbModal,private fb: FormBuilder, private contactService: ContactService) {
     this.buildContactForm();
    }
 
@@ -83,7 +88,27 @@ export class ContactComponent implements OnInit {
       //this.messageRest.push(this.message);
       console.log("After Message Rest", this.messageRest);
       this.contactService.setContactMessage(this.message).subscribe(mymessage => {this.message = mymessage});
-   
+    this.modal.open(true);
     }
 
+    open(content) {
+      console.log(content);
+      
+      console.log("open function");
+      
+      this.modalService.open(FavoritesDialogsComponent, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return  `with: ${reason}`;
+      }
+    }
 }

@@ -37,7 +37,7 @@ export class ContactComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.contactService.getContactMessages().subscribe(myMessages => {  this.messageRest= myMessages;   });
+    //this.contactService.getContactMessages().subscribe(myMessages => {  this.messageRest= myMessages;   });
   }
 
   buildContactForm() {
@@ -80,9 +80,9 @@ export class ContactComponent implements OnInit {
     console.log("Message Rest", this.messageRest);
     
       //this.producto.comentarios.push(this.comentario);
-      this.messageRest.push(this.message);
+      //this.messageRest.push(this.message);
       console.log("After Message Rest", this.messageRest);
-      this.contactService.setContactMessage(this.messageRest).subscribe(mymessage => {this.message = mymessage});
+      this.contactService.setContactMessage(this.message).subscribe(mymessage => {this.message = mymessage});
    
     }
 

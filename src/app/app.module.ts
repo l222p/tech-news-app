@@ -15,6 +15,7 @@ import { NewsComponent } from './news/news.component';
 
 import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import{ dataURL} from'../dataURL';
+import{ BrowserAnimationsModule} from'@angular/platform-browser/animations';
 //Services
 import { ProcessHTTPService } from './services/process-http.service';
 import {NewsService} from './services/news.service'
@@ -29,7 +30,8 @@ import { CategoryTagComponent } from './category-tag/category-tag.component';
 import { ContactComponent } from './contact/contact.component';
 import { FavoritesDialogsComponent } from './favorites-dialogs/favorites-dialogs.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { RelatedNewsComponent } from './related-news/related-news.component'
+import { RelatedNewsComponent } from './related-news/related-news.component';
+import { AboutUsComponent } from './about-us/about-us.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,8 @@ import { RelatedNewsComponent } from './related-news/related-news.component'
     ContactComponent,
     FavoritesDialogsComponent,
     FavoritesComponent,
-    RelatedNewsComponent
+    RelatedNewsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { RelatedNewsComponent } from './related-news/related-news.component'
     AppRoutingModule,
     AngularFontAwesomeModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     NgbModule,    
     NgbModule.forRoot()
   ],

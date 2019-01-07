@@ -22,10 +22,9 @@ export class ContactService {
   getContactMessages():Observable<Message>{
     return this.http.get<Message>(dataURL+ 'contactMessages').pipe(catchError(this.processHttpService.manageError));
   }
-  setContactMessage(message):Observable<Message>{
+  setContactMessage(message: Message):Observable<Message>{
     console.log("setContactMessage()", message);
     
-    return this.http.put<Message>(dataURL+ 'contactMessages', message, httpOptions)
-    .pipe(catchError(this.processHttpService.manageError));
+    return this.http.post<Message>(dataURL+ 'contacts', message, httpOptions).pipe(catchError(this.processHttpService.manageError));
   }
 }

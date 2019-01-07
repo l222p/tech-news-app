@@ -30,7 +30,7 @@ export class NewsService {
   }
 
   getRecentNews(): Observable<News[]> {
-    var myVar: Observable<News[]> =this.http.get<News[]>(dataURL+ 'news?slider=true').pipe(catchError(this.processHttpService.manageError));    
+    var myVar: Observable<News[]> =this.http.get<News[]>(dataURL+ 'news?_sort=date&_order=desc&_limit=6').pipe(catchError(this.processHttpService.manageError));    
     return myVar;
   }
   

@@ -16,7 +16,7 @@ export class RecentPostsComponent implements OnInit {
   constructor(private newsService: NewsService, private categoryService: CategoriesService) { }
 
   ngOnInit() {
-    console.log("perros");
+    
     
     this.newsService.getRecentNews().subscribe(news => this.recentPosts= news);
   }

@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit {
    }
 
   ngOnInit() {
-   this.visibilidad= 'oculto';
+   //this.visibilidad= 'oculto';
    
   }
 

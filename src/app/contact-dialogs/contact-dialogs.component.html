@@ -1,11 +1,11 @@
-<ng-template #send let-modal>
-    <div class="modal-header">
+<ng-template #send let-modal >
+    <div class="modal-header" style="opacity: 0;" [@visibilidad]="visibilidad">
       <h4 class="modal-title" id="modal-basic-title">Contact</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="opacity: 0;" [@visibilidad]="visibilidad">
       <div class="thank-you-pop">
           <i class="success fa fa-check"></i>
         <h1>Your message was sent.</h1>
@@ -15,7 +15,7 @@
     
   </ng-template>
 
-  <ng-template #notsend let-modal>
+  <ng-template #notsend let-modal >
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Contact</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">

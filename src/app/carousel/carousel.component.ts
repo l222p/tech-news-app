@@ -8,7 +8,7 @@ import { News } from 'src/shared/News';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  images = [1, 2, 3,4].map(() => `https://picsum.photos/1110/500?random&t=${Math.random()}`);
+  //images = [1, 2, 3,4].map(() => `https://picsum.photos/1110/500?random&t=${Math.random()}`);
   
   sliderImages: News[];
   errorMsj: string;

@@ -13,6 +13,6 @@ export function visibilidad() {
             //transform: 'scale(0.5)',
             opacity: 0
         })),
-        transition('* <=> *', animate('10s ease-in-out'))
+        transition('* <=> *', animate('1s ease-in-out'))
     ]);
 }

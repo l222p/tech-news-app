@@ -50,8 +50,10 @@ import { ContactDialogsComponent } from './contact-dialogs/contact-dialogs.compo
     RelatedNewsComponent,
     AboutUsComponent,
     ContactDialogsComponent
+    
   ],
   imports: [
+    
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

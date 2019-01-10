@@ -8,7 +8,7 @@ import { visibilidad} from '../animations/app.animations';
   animations: [visibilidad()]
 })
 export class AboutUsComponent implements OnInit {
-
+  visibilidad = 'visible';
   constructor() { }
 
   ngOnInit() {

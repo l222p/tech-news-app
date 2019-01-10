@@ -1,6 +1,6 @@
 <app-favorites-dialogs #myModal></app-favorites-dialogs>
 
-<div *ngIf="news">
+<div *ngIf="news" style="opacity: 0;" [@visibilidad]="visibilidad">
   <div id="post-header" class="page-header">
     <div class="background-img" style="background-image: url('https://placeimg.com/1920/1080/any');"></div>
     <div class="container">

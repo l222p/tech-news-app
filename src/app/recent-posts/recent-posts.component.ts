@@ -3,13 +3,15 @@ import {NewsService} from '../services/news.service'
 import { News } from 'src/shared/News';
 import { CategoriesService } from '../services/categories.service';
 import { Category } from 'src/shared/Category';
+import { visibilidad } from '../animations/app.animations';
 @Component({
   selector: 'app-recent-posts',
   templateUrl: './recent-posts.component.html',
-  styleUrls: ['./recent-posts.component.scss']
+  styleUrls: ['./recent-posts.component.scss'],
+  animations: [visibilidad()]
 })
 export class RecentPostsComponent implements OnInit {
-  
+  visibilidad = "visible"
   recentPosts: News[];
   myCategory: Category;
   

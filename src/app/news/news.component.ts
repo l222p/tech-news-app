@@ -12,14 +12,18 @@ import{ FormBuilder, FormGroup, Validators} from'@angular/forms';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { Category } from 'src/shared/Category';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { visibilidad } from '../animations/app.animations';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  styleUrls: ['./news.component.scss'],
+  animations: [visibilidad()]
 })
 export class NewsComponent implements OnInit {
+  visibilidad = 'visible';
   @ViewChild('myModal') modal: FavoritesDialogsComponent;
+  
   news: News;
   newsForm: News;
   errorMsj: string;

@@ -5,13 +5,16 @@ import {ContactService } from '../services/contact.service';
 import { FavoritesDialogsComponent } from '../favorites-dialogs/favorites-dialogs.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { ContactDialogsComponent } from '../contact-dialogs/contact-dialogs.component';
+import { visibilidad } from '../animations/app.animations';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  animations: [visibilidad()]
 })
 export class ContactComponent implements OnInit {
+  visibilidad = "visible";
   @ViewChild('myModal') modal: ContactDialogsComponent;
   contactForm: FormGroup;
   message: Message;

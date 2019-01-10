@@ -1,12 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { visibilidad } from '../animations/app.animations';
 
 @Component({
   selector: 'app-contact-dialogs',
   templateUrl: './contact-dialogs.component.html',
-  styleUrls: ['./contact-dialogs.component.scss']
+  styleUrls: ['./contact-dialogs.component.scss'],
+  animations: [visibilidad()]
 })
 export class ContactDialogsComponent implements OnInit {
+    visibilidad = "visible";
   @ViewChild('send') successAdded: any;
   @ViewChild('notsend') errorAdded: any;
   closeResult: string;
